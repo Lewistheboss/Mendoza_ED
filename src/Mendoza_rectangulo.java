@@ -1,12 +1,14 @@
+//AUTOR: LUIS MENDOZA
+//version 1.0
 
 public class Mendoza_rectangulo {
-//Atributos 
+//Atributos principales de el rectangulo a crear. 
 	 private int id;
 	    private double ladoA;
 	    private double ladoB;
 	    private String color;
 	
-//Cosntructor por defecto
+//Cosntructor por defecto, sin argumentos. 
 		public Mendoza_rectangulo() {
 			super();
 		}  
@@ -18,7 +20,7 @@ public Mendoza_rectangulo(double ladoA, double ladoB, String color) {
 	this.ladoB = ladoB;
 	this.color = color;
 }
-//constructor generico
+//constructor generico con todos los argumentos.
 public Mendoza_rectangulo(int id, double ladoA, double ladoB, String color) {
 	super();
 	this.id = id;
