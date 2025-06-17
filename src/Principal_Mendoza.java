@@ -2,37 +2,33 @@ public class Principal_Mendoza {
     public static void main(String[] args) {
         // 1. Crear instancias de las figuras
         Mendoza_circulo circulo1 = new Mendoza_circulo(1, "Círculo Solar", 5.0, "Amarillo");
-        Mendoza_circulo circulo2 = new Mendoza_circulo("Círculo Lunar", 3.0, "Plateado");
-        
         Mendoza_rectangulo rectangulo1 = new Mendoza_rectangulo(1, 4.0, 6.0, "Verde");
-        Mendoza_rectangulo cuadrado1 = new Mendoza_rectangulo(5.0, 5.0, "Rojo"); // Cuadrado
 
-        // 2. Calcular áreas
-        double areaCirculo1 = Math.PI * Math.pow(circulo1.getRadio(), 2);
-        double areaCirculo2 = Math.PI * Math.pow(circulo2.getRadio(), 2);
-        double areaRectangulo = rectangulo1.getLadoA() * rectangulo1.getLadoB();
-        double areaCuadrado = cuadrado1.getLadoA() * cuadrado1.getLadoB();
+        // 2. Calcular y mostrar perímetros
+        double perimetroCirculo = calcularPerimetroCirculo(circulo1.getRadio());
+        double perimetroRectangulo = calcularPerimetroRectangulo(rectangulo1.getLadoA(), rectangulo1.getLadoB());
 
-        // 3. Comparaciones
-        double diferenciaCirculos = Math.abs(areaCirculo1 - areaCirculo2);
-        double diferenciaFiguras = Math.abs(areaCirculo1 - areaCuadrado);
+        System.out.println("\n=== PERÍMETROS ===");
+        System.out.printf("Perímetro del %s: %.2f%n", circulo1.getNombre(), perimetroCirculo);
+        System.out.printf("Perímetro del rectángulo %s: %.2f%n", rectangulo1.getColor(), perimetroRectangulo);
+    }
 
-        // 4. Mostrar resultados
-        System.out.println("=== RESULTADOS ===");
-        System.out.println("\nÁreas calculadas:");
-        System.out.printf("- %s: %.2f%n", circulo1.getNombre(), areaCirculo1);
-        System.out.printf("- %s: %.2f%n", circulo2.getNombre(), areaCirculo2);
-        System.out.printf("- Rectángulo %s: %.2f%n", rectangulo1.getColor(), areaRectangulo);
-        System.out.printf("- Cuadrado %s: %.2f%n", cuadrado1.getColor(), areaCuadrado);
+    /**
+     * Calcula el perímetro de un círculo (circunferencia)
+     * @param radio Radio del círculo
+     * @return Perímetro calculado (2 * π * radio)
+     */
+    private static double calcularPerimetroCirculo(double radio) {
+        return 2 * Math.PI * radio;
+    }
 
-        System.out.println("\nDiferencias:");
-        System.out.printf("- Entre círculos: %.2f%n", diferenciaCirculos);
-        System.out.printf("- Entre Círculo Solar y Cuadrado: %.2f%n", diferenciaFiguras);
-
-        System.out.println("\nDetalles completos:");
-        System.out.println(circulo1);
-        System.out.println(circulo2);
-        System.out.println(rectangulo1);
-        System.out.println(cuadrado1);
+    /**
+     * Calcula el perímetro de un rectángulo
+     * @param ladoA Primer lado del rectángulo
+     * @param ladoB Segundo lado del rectángulo
+     * @return Perímetro calculado (2*(ladoA + ladoB))
+     */
+    private static double calcularPerimetroRectangulo(double ladoA, double ladoB) {
+        return 2 * (ladoA + ladoB);
     }
 }
